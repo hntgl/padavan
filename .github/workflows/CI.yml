@@ -27,13 +27,9 @@ jobs:
       matrix:
         include:
           - build_variant: "mt7620"
-            targets: "MI-MINI MI-3"
-          - build_variant: "mt7628"
-            targets: "MI-NANO"
-          - build_variant: "mt7621"
-            targets: "RM2100"
+            targets: "MI-MINI"
           - build_variant: "mt7621-usb"
-            targets: "MI-R3G NEWIFI3 MI-R3P"
+            targets: "NEWIFI3 MI-R3P"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
