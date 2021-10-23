@@ -137,16 +137,15 @@ fi
 }
 
 dl_adg(){
-logger -t "AdGuardHome" "下载AdGuardHome"
-wget --no-check-certificate -O /tmp/AdGuardHome.tar.gz https://static.adguard.com/adguardhome/release/AdGuardHome_linux_mipsle_softfloat.tar.gz
-if [ ! -f "/tmp/AdGuardHome.tar.gz" ]; then
-logger -t "AdGuardHome" "AdGuardHome下载失败，请检查是否能正常访问github!程序将退出。"
+logger -t "AdGuardHome" "Download AdGuardHome"
+#wget --no-check-certificate -O /tmp/AdGuardHome.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.101.0/AdGuardHome_linux_mipsle.tar.gz
+curl -k -s -o /tmp/AdGuardHome/AdGuardHome --connect-timeout 10 --retry 3 https://github.com/hntgl/rt-n56u/raw/AdGuardHome/trunk/user/adguardhome/AdGuardHome
+if [ ! -f "/tmp/AdGuardHome/AdGuardHome" ]; then
+logger -t "AdGuardHome" "AdGuardHome failed to download, please check whether you can access github normally! The program will exit."
 nvram set adg_enable=0
 exit 0
 else
-logger -t "AdGuardHome" "AdGuardHome下载成功。"
-tar -xzvf /tmp/AdGuardHome.tar.gz -C /tmp
-rm -f /tmp/AdGuardHome.tar.gz /tmp/AdGuardHome/LICENSE.txt /tmp/AdGuardHome/README.md
+logger -t "AdGuardHome" "AdGuardHome downloaded success"
 chmod 777 /tmp/AdGuardHome/AdGuardHome
 fi
 }
