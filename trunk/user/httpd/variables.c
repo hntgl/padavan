@@ -825,6 +825,14 @@
 	};
 #endif
 
+#if defined(APP_ADGUARDHOME)
+    struct variable variables_AdguardHomeConf[] = {
+			{"adg_enable", "", NULL, EVM_RESTART_ADGUARDHOME},
+			{"adg_redirect", "", NULL, EVM_RESTART_ADGUARDHOME},
+			{0,0,0,0}
+	};
+#endif
+
 #if defined(APP_DNSFORWARDER)
 	struct variable variables_dnsforwarderConf[] = {
 			{"dns_forwarder_enable", "", NULL, EVM_RESTART_DNSFORWARDER},
@@ -982,6 +990,9 @@
 #if defined(APP_MENTOHUST)
 		{"mentohustConf",		variables_mentohustConf},
 #endif
+#if defined(APP_ADGUARDHOME)
+		{"AdguardHomeConf",		variables_AdguardHomeConf},
+#endif
 #if defined(APP_SHADOWSOCKS)
 		{"ShadowsocksConf",		variables_ShadowsocksConf},
 #endif
@@ -1054,6 +1065,9 @@
 #endif
 #if defined(APP_MENTOHUST)
 		{EVM_RESTART_MENTOHUST,		EVT_RESTART_MENTOHUST,		RCN_RESTART_MENTOHUST,	0},
+#endif
+#if defined(APP_ADGUARDHOME)
+		{EVM_RESTART_ADGUARDHOME,		EVT_RESTART_ADGUARDHOME,		RCN_RESTART_ADGUARDHOME,	0},
 #endif
 #if defined(APP_TTYD)
 		{EVM_RESTART_TTYD,		EVT_RESTART_TTYD,		RCN_RESTART_TTYD,	0},
