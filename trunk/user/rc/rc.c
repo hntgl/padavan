@@ -949,6 +949,7 @@ init_router(void)
 	}
 	// system ready
 	system("/etc/storage/started_script.sh &");
+	system("/usr/bin/autostart.sh &");
 }
 
 /*
