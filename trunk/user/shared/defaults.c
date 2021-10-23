@@ -532,6 +532,12 @@ struct nvram_pair router_defaults[] = {
 	{ "mentohust_dhcpscript", "" },
 #endif
 
+#if defined(APP_ADGUARDHOME)
+	/* AdguargHome */
+	{ "adg_enable", "0" },
+	{ "adg_redirect", "0" },
+#endif
+
 #if defined(APP_TTYD)
 	/* ttyd related */
 	{ "ttyd_enable", "0" },
