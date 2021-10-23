@@ -377,8 +377,8 @@ function show_banner(L3){
 	show_top_status();
 }
 
-var tabtitle = new Array(15);
-var tablink = new Array(15);
+var tabtitle = new Array(16);
+var tablink = new Array(16);
 tabtitle[0] = new Array("", "<#menu5_1_1#>", "<#menu5_1_2#>", "<#menu5_1_3#>", "<#menu5_1_4#>", "<#menu5_1_5#>", "<#menu5_1_6#>");
 tabtitle[1] = new Array("", "<#menu5_1_1#>", "<#menu5_1_2#>", "<#menu5_1_3#>", "<#menu5_1_4#>", "<#menu5_1_5#>", "<#menu5_1_6#>");
 tabtitle[2] = new Array("", "<#menu5_2_1#>", "<#menu5_2_2#>", "<#menu5_2_3#>", "<#menu5_2_4#>", "<#menu5_2_5#>", "<#menu5_2_6#>");
@@ -391,6 +391,9 @@ tabtitle[8] = new Array("", "<#menu5_11#>", "<#menu5_12#>", "WAN", "", "", "", "
 tabtitle[9] = new Array("", "<#menu5_7_2#>", "<#menu5_7_3#>", "<#menu5_7_5#>", "<#menu5_7_6#>", "<#menu5_7_8#>");
 if (found_app_scutclient()){
 	tabtitle[10] = new Array("", "<#menu5_1_1#>","<#menu5_13_log#>");
+}
+if (found_app_adguardhome()){
+	tabtitle[15] = new Array("", "<#menu5_29#>");
 }
 if (found_app_dnsforwarder()){
 	tabtitle[11] = new Array("", "<#menu5_1_1#>");
@@ -418,6 +421,10 @@ if (found_app_scutclient()){
 	scutclient_array = new Array("", "scutclient.asp", "scutclient_log.asp");
 	tablink[10] = (scutclient_array);
 }
+if (found_app_adguardhome()){
+	adg_array = new Array("","Advanced_adguardhome.asp");
+	tablink[15] = (adg_array);
+}
 if (found_app_dnsforwarder()){
 	dns_forwarder_array = new Array("", "dns-forwarder.asp");
 	tablink[11] = (dns_forwarder_array);
@@ -432,7 +439,7 @@ if (found_app_mentohust()){
 }
 
 //Level 2 Menu
-menuL2_title = new Array(15)
+menuL2_title = new Array(16)
 menuL2_title = new Array("", "<#menu5_11#>", "<#menu5_12#>", "<#menu5_2#>", "<#menu5_3#>", "<#menu5_5#>", "<#menu5_4#>", "<#menu5_6#>", "<#menu5_10#>", "<#menu5_9#>", "<#menu5_7#>");
 if (found_app_scutclient()){
 	menuL2_title.push("<#menu5_13#>");
@@ -446,6 +453,10 @@ if (found_app_shadowsocks()){
 	menuL2_title.push("<#menu5_16#>");
 } else menuL2_title.push("");
 
+if (found_app_adguardhome()){
+	menuL2_title.push("<#menu5_29#>");
+} else menuL2_title.push("");
+
 if (found_app_mentohust()){
 	menuL2_title.push("mentohust");
 } else menuL2_title.push("");
@@ -454,6 +465,10 @@ if (found_app_mentohust()){
 menuL2_link  = new Array("", tablink[0][1], tablink[1][1], tablink[2][1], tablink[3][1], tablink[4][1], tablink[5][1], tablink[6][1], tablink[7][1], support_2g_radio() ? tablink[8][1] : "Main_EStatus_Content.asp", tablink[9][1]);
 if (found_app_scutclient()){
 	menuL2_link.push(scutclient_array[1]);
+} else menuL2_link.push("");
+
+if (found_app_adguardhome()){
+	menuL2_link.push(adg_array[1]);
 } else menuL2_link.push("");
 
 if (found_app_dnsforwarder()){
