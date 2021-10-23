@@ -289,6 +289,24 @@ void restart_mentohust(void)
 
 #endif
 
+#if defined(APP_ADGUARDHOME)
+void stop_adguardhome(void){
+	eval("/usr/bin/adguardhome.sh","stop");
+}
+
+void start_adguardhome(void){
+	int adg_mode = nvram_get_int("adg_enable");
+	if ( adg_mode == 1)
+		eval("/usr/bin/adguardhome.sh","start");
+}
+
+void restart_adguardhome(void){
+	stop_adguardhome();
+	start_adguardhome();
+}
+
+#endif
+
 #if defined(APP_TTYD)
 void stop_ttyd(void){
 	eval("/usr/bin/ttyd.sh","stop");
@@ -651,6 +669,9 @@ stop_services(int stopall)
 #endif
 #if defined(APP_MENTOHUST)
 	stop_mentohust();
+#endif
+#if defined(APP_ADGUARDHOME)
+	stop_adguardhome();
 #endif
 #if defined(APP_TTYD)
 	stop_ttyd();
