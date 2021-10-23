@@ -525,6 +525,11 @@ void stop_mentohust(void);
 void start_mentohust(void);
 void restart_mentohust(void);
 #endif
+#if defined(APP_ADGUARDHOME)
+void stop_adguardhome(void);
+void start_adguardhome(void);
+void restart_adguardhome(void);
+#endif
 #if defined(APP_TTYD)
 void stop_ttyd(void);
 void start_ttyd(void);
