@@ -1283,6 +1283,12 @@ handle_notifications(void)
 			stop_mentohust();
 		}
 #endif
+#if defined(APP_ADGUARDHOME)
+		else if (strcmp(entry->d_name, RCN_RESTART_ADGUARDHOME) == 0)
+		{
+			restart_adguardhome();
+		}
+#endif
 #if defined(APP_TTYD)
 		else if (strcmp(entry->d_name, RCN_RESTART_TTYD) == 0)
 		{
