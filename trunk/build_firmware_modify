@@ -12,6 +12,7 @@ if [ ! -f configs/templates/$1.config ] ; then
 fi
 
 cp -f configs/templates/$1.config .config
+echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config
 
 ROOTDIR=`pwd`
 export ROOTDIR=$ROOTDIR
