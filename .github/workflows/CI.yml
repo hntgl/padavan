@@ -29,7 +29,7 @@ jobs:
           - build_variant: "mt7620"
             targets: "MI-MINI"
           - build_variant: "mt7621-usb"
-            targets: "NEWIFI3 MI-R3P"
+            targets: "NEWIFI3 MI-R3P MI-R3P-breed"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
